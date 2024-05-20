@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depósito Bancário</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+
+        .deposit-container {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .deposit-container h2 {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .form-group input[type="text"] {
+            width: calc(100% - 24px); /* Adicionando 12px de padding em cada lado */
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 14px 24px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="deposit-container">
+        <h2>Depósito Bancário</h2>
+        <form>
+            <div class="form-group">
+                <label for="amount">Valor:</label>
+                <input type="text" id="amount" name="amount" placeholder="Informe o valor a ser depositado" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Confirmar</button>
+            </div>
+            <div class="form-group">
+                <button type="button" onclick="alert('Depósito cancelado')">Cancelar</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/4.0.2/jquery.maskMoney.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#amount').maskMoney({ prefix: 'R$ ', allowNegative: false, thousands: '.', decimal: ',' });
+        });
+    </script>
+</body>
+</html>
