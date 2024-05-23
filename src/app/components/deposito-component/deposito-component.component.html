@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Depósito Bancário</title>
+    <title>Deposito</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -15,44 +15,47 @@
             background-color: #f5f5f5;
         }
 
-        .deposit-container {
+        .deposito-container {
             background-color: #fff;
             border: 1px solid #ccc;
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             text-align: center;
-            max-width: 400px;
+            width: 300px;
         }
 
-        .deposit-container h2 {
+        .deposito-container h2 {
             margin-bottom: 20px;
-            font-size: 20px;
+            font-size: 24px;
+            color: #333;
         }
 
         .form-group {
-            margin-bottom: 30px;
-            text-align: left;
+            margin-bottom: 20px;
         }
 
         .form-group label {
             display: block;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
+            color: #666;
         }
 
-        .form-group input[type="text"] {
-            width: calc(100% - 24px); /* Adicionando 12px de padding em cada lado */
+        .form-group input[type="text"],
+        .form-group input[type="password"] {
+            width: calc(100% - 16px);
             padding: 12px;
             border: 1px solid #ccc;
             border-radius: 5px;
             box-sizing: border-box;
-            margin-top: 5px;
+            font-size: 16px;
+            color: #555;
         }
 
         .form-group button {
             width: 100%;
-            padding: 14px 24px;
+            padding: 12px;
             background-color: #007bff;
             border: none;
             border-radius: 5px;
@@ -69,27 +72,26 @@
     </style>
 </head>
 <body>
-    <div class="deposit-container">
-        <h2>Depósito Bancário</h2>
+    <div class="deposito-container">
+        <img src="./assets/img_ibm.jpg" alt="IBM Logo" style="width: 100px; margin-bottom: 20px;">
+        <h2>Deposito</h2>
         <form>
             <div class="form-group">
-                <label for="amount">Valor:</label>
-                <input type="text" id="amount" name="amount" placeholder="Informe o valor a ser depositado" required>
+                <label for="numeroConta">Número da Conta:</label>
+                <input type="text" id="numeroConta" name="numeroConta" placeholder="0000-00" required #numeroConta>
             </div>
             <div class="form-group">
-                <button type="submit">Confirmar</button>
+                <label for="valor">Valor</label>
+                <input type="text" id="valor" name="valor" placeholder="R$:" required #valor>
             </div>
             <div class="form-group">
-                <button type="button" onclick="alert('Depósito cancelado')">Cancelar</button>
+                <button type="button" (click)="onSubmit(numeroConta.value, valor.value)">Confirmar</button>
+            </div>
+            <div class="form-group">
+                <button type="button" onclick="alert('Saque cancelado')">Cancelar</button>
             </div>
         </form>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/4.0.2/jquery.maskMoney.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('#amount').maskMoney({ prefix: 'R$ ', allowNegative: false, thousands: '.', decimal: ',' });
-        });
-    </script>
 </body>
 </html>
+

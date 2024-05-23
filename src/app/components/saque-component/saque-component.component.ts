@@ -8,19 +8,18 @@ import { SaqueService } from '../../service/saque-service';
   styleUrl: './saque-component.component.css'
 })
 export class SaqueComponentComponent {
-  constructor(private saqueService: SaqueService, private router: Router) { }
+  constructor(private saqueService: SaqueService, private router: Router) {}
 
-  onSubmit(numeroConta: string, valor: string, tipoTransacao: string) {
-   this.saqueService.saque(numeroConta, valor, tipoTransacao).subscribe(
-     response => {
-       console.log('Login successful');
-       this.router.navigate(['/home']);
-     },
-     error => {
-       console.error('Login failed', error);
-       this.router.navigate(['/home']);
-     }
-   );
- }
-
+  onSubmit(numeroConta: string, valor: string) {
+    this.saqueService.saque(numeroConta, valor, 'Saque').subscribe(
+      response => {
+        console.log('Saque successful');
+        this.router.navigate(['/home']);
+      },
+      error => {
+        console.error('Saque failed', error);
+        this.router.navigate(['/home']);
+      }
+    );
+  }
 }

@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 export class DepositoComponentComponent {
   constructor(private depositoService: DepositoService, private router: Router) { }
 
-  onSubmit(numeroConta: string, valor: string, tipoTransacao: string) {
-   this.depositoService.deposito(numeroConta, valor, tipoTransacao).subscribe(
+  onSubmit(numeroConta: string, valor: string) {
+   this.depositoService.deposito(numeroConta, valor, 'Deposito').subscribe(
      response => {
        console.log('Login successful');
        this.router.navigate(['/home']);

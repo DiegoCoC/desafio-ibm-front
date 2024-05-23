@@ -3,68 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Extrato Bancário</title>
+    <title>Extrato Bancária</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
             background-color: #f5f5f5;
-            padding: 20px;
         }
 
-        h1 {
+        .extrato-container {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             text-align: center;
+            width: 300px;
         }
 
-        table {
+        .extrato-container h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="password"] {
+            width: calc(100% - 16px);
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .form-group button {
             width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
+            padding: 12px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background-color 0.3s;
         }
 
-        th, td {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        tr:nth-child(even) {
-            background-color: #ffffff;
-        }
-
-        tr:hover {
-            background-color: #f2f2f2;
+        .form-group button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <h1>Extrato Bancário</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Tipo de Conta</th>
-                <th>Número da Conta</th>
-                <th>Saldo</th>
-                <th>Tipo de Transação</th>
-                <th>Valor</th>
-                <th>Data da Transação</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>João Silva</td>
-                <td>Conta Corrente</td>
-                <td>123456</td>
-                <td>R$ 1000,00</td>
-                <td>Saque</td>
-                <td>R$ 50,00</td>
-                <td>2024-05-25</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="extrato-container">
+        <img src="./assets/img_ibm.jpg" alt="IBM Logo" style="width: 100px; margin-bottom: 20px;">
+        <h2>Extrato Bancária</h2>
+        <form>
+            <div class="form-group">
+                <label for="conta">Número da Conta:</label>
+                <input type="text" id="conta" name="conta" placeholder="0000-00" required #conta>
+            </div>
+            <div class="form-group">
+                <button type="button" (click)="onSubmit(conta.value)">Confirmar</button>
+            </div>
+            <div class="form-group">
+                <button type="button" onclick="alert('Saque cancelado')">Cancelar</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
+

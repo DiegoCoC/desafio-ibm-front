@@ -8,11 +8,10 @@ export class TransferenciaService {
 
   constructor(private http: HttpClient) { }
 
-  transferencia(numeroContaSaque: string, numeroContaRecebe: string, numeroConta: string, valor: string, tipoTransacao: string) {
+  transferencia(numeroContaSaque: string, numeroContaRecebe: string, valor: string, tipoTransacao: string) {
     const body = {
       numeroContaSaque: numeroContaSaque,  
       numeroContaRecebe: numeroContaRecebe,
-      numeroConta: numeroConta,
       valor: valor,
       tipoTransacao: tipoTransacao
     };

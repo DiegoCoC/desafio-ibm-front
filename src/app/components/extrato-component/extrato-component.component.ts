@@ -13,11 +13,11 @@ export class ExtratoComponentComponent {
   onSubmit(conta: string) {
    this.transferenciaService.extrato(conta).subscribe(
      response => {
-       console.log('Login successful');
+       console.log('Extrato successful');
        this.router.navigate(['/home']);
      },
      error => {
-       console.error('Login failed', error);
+       console.error('Extrato failed', error);
        this.router.navigate(['/home']);
      }
    );
