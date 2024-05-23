@@ -23,4 +23,8 @@ export class TransferenciaComponentComponent {
    );
  }
 
+  cancelarTransferencia() {
+    alert("Operação cancelada!");
+    this.router.navigate(['/home']);
+  }
 }

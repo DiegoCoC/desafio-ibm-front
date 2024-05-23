@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ExtratoService } from '../../service/extrato-service';
+import { ToastrService } from 'ngx-toastr';
 
 interface Transacao {
   nome: string;
@@ -22,7 +23,7 @@ export class ExtratoComponentComponent {
   extratoList: Transacao[] = [];
   showExtrato: boolean = false;
 
-  constructor(private transferenciaService: ExtratoService, private router: Router) { }
+  constructor(private transferenciaService: ExtratoService, private router: Router, private toastr: ToastrService) { }
 
   onSubmit(conta: string) {
     this.transferenciaService.extrato(conta).subscribe(
@@ -30,7 +31,7 @@ export class ExtratoComponentComponent {
         console.log('Extrato successful');
         this.extratoList = response;
         this.showExtrato = true; 
-        alert('Extrato obtido com sucesso!');
+        this.toastr.success('Operação realizada com sucesso!', 'Sucesso');
       },
       error => {
         console.error('Extrato failed', error);
@@ -38,4 +39,11 @@ export class ExtratoComponentComponent {
       }
     );
   }
+
+  cancelarExtrato() {
+    alert("Operação cancelada!");
+    this.router.navigate(['/home']);
+  }
+
+  
 }

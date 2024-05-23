@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 import { LoginComponentComponent } from './components/login-component/login-component.component';
 import { CadastroClienteComponentComponent } from './components/cadastro-cliente-component/cadastro-cliente-component.component';
 import { HomeComponentComponent } from './components/home-component/home-component.component';
@@ -25,7 +27,9 @@ import { ExtratoComponentComponent } from './components/extrato-component/extrat
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule, 
+    ToastrModule.forRoot() 
   ],
   providers: [],
   bootstrap: [AppComponent]

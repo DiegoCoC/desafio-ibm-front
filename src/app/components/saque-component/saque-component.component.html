@@ -88,7 +88,9 @@
                 <button type="button" (click)="onSubmit(numeroConta.value, valor.value)">Confirmar</button>
             </div>
             <div class="form-group">
-                <button type="button" onclick="alert('Saque cancelado')">Cancelar</button>
+                <div class="form-group">
+                    <button type="button" (click)="cancelarSaque()">Cancelar</button>
+                </div>
             </div>
         </form>
     </div>

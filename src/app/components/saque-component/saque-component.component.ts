@@ -22,4 +22,9 @@ export class SaqueComponentComponent {
       }
     );
   }
+
+  cancelarSaque() {
+    alert("Operação cancelada!");
+    this.router.navigate(['/home']);
+  }
 }

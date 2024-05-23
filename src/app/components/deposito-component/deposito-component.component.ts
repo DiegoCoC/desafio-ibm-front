@@ -23,4 +23,9 @@ export class DepositoComponentComponent {
    );
  }
 
+  cancelarDeposito() {
+    alert("Operação cancelada!");
+    this.router.navigate(['/home']);
+  }
+
 }
